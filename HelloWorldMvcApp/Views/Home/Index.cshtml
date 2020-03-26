@@ -1,0 +1,35 @@
+﻿@model IEnumerable<MobileStore.Models.Phone>
+@{
+    //ViewData["Title"] = "Phone List";
+    Layout = null;
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Phone store</title>
+</head>
+<body>
+    <h3>Smartphones</h3>
+    <td> <a href="~/Home/PrivacyPolicy/">Privacy Policy</a></td>
+    <td> <a href="~/Registration/Registration/">Registration</a></td>
+
+    <table>
+        <tr>
+            <td>Model</td>
+            <td>Manufacturer</td>
+            <td>Price</td>
+            <td></td>
+        </tr>
+        @foreach (var phone in Model)
+        {
+            <tr>
+                <td>@phone.Name</td>
+                <td>@phone.Company</td>
+                <td>@phone.Price</td>
+                <td><a href="~/Home/Buy/@phone.Id">To buy</a></td>
+            </tr>
+        }
+    </table>
+</body>
+</html>
