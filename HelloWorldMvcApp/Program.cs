@@ -18,7 +18,7 @@ namespace MobileStore
 
                 try
                 {
-                    var context = services.GetRequiredService<MobileContext>();
+                    var context = services.GetRequiredService<IDbContext>();
                     SampleData.Initialize(context);
                 }
                 catch (Exception ex)
@@ -27,14 +27,14 @@ namespace MobileStore
                     logger.LogError(ex, "An error occurred seeding the DB.");
                 }
             }
+
             host.Run();
         }
 
-        public static IHostBuilder CreateHostBuilder(string[] args) =>
-            Host.CreateDefaultBuilder(args)
-                .ConfigureWebHostDefaults(webBuilder =>
-                {
-                    webBuilder.UseStartup<Startup>();
-                });
+        public static IHostBuilder CreateHostBuilder(string[] args)
+        {
+            return Host.CreateDefaultBuilder(args)
+                .ConfigureWebHostDefaults(webBuilder => { webBuilder.UseStartup<Startup>(); });
+        }
     }
 }

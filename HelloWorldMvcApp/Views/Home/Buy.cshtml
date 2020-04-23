@@ -8,27 +8,38 @@
     <title>Checkout</title>
 </head>
 <body>
-<div>
-    <h3>Checkout form</h3>
-    <p>To make a purchase, fill out the following fields:</p>
-    <form method="post">
-        <input type="hidden" value="@ViewBag.PhoneId" name="PhoneId" />
-        <table>
-            <tr>
-                <td>Name:</td>
-                <td><input type="text" name="User" /> </td>
-            </tr>
-            <tr>
-                <td>Addres:</td>
-                <td><input type="text" name="Address" /></td>
-            </tr>
-            <tr>
-                <td>Phone:</td>
-                <td><input type="text" name="ContactPhone" /></td>
-            </tr>
-            <tr><td><input type="submit" value="Send" /> </td><td></td></tr>
-        </table>
-    </form>
-</div>
+    <div>
+        <h3>Checkout form</h3>
+        <p>To make a purchase, fill out the following fields:</p>
+        <a href="~/Home/">Home</a>
+        <form method="post">
+            <input type="hidden" value="@ViewBag.PhoneId" name="PhoneId" />
+            <table>
+                <tr>
+                    <td>Name:</td>
+                    <td>
+                        <input type="text" name="User" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>Address:</td>
+                    <td>
+                        <input type="text" name="Address" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>Phone:</td>
+                    <td>
+                        <input type="text" name="ContactPhone" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="submit" value="Send" />
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
 </body>
 </html>

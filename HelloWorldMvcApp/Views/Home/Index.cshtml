@@ -10,26 +10,30 @@
     <title>Phone store</title>
 </head>
 <body>
-    <h3>Smartphones</h3>
-    <td> <a href="~/Home/PrivacyPolicy/">Privacy Policy</a></td>
-    <td> <a href="~/Registration/Registration/">Registration</a></td>
+<h3>Smartphones</h3>
+<div>
+    <a href="~/Home/PrivacyPolicy/">Privacy Policy</a> <a href="~/Registration/Registration/">Registration</a>
+</div>
 
-    <table>
+<table>
+    <tr>
+        <td>Model</td>
+        <td>Manufacturer</td>
+        <td>Price</td>
+        <td>Year of release</td>
+    </tr>
+    @foreach (var phone in Model)
+    {
         <tr>
-            <td>Model</td>
-            <td>Manufacturer</td>
-            <td>Price</td>
-            <td></td>
+            <td>@phone.Name</td>
+            <td>@phone.Company</td>
+            <td>@phone.Price</td>
+            <td>@phone.ReleaseYear</td>
+            <td>
+                <a href="~/Home/Buy/@phone.Id">To buy</a>
+            </td>
         </tr>
-        @foreach (var phone in Model)
-        {
-            <tr>
-                <td>@phone.Name</td>
-                <td>@phone.Company</td>
-                <td>@phone.Price</td>
-                <td><a href="~/Home/Buy/@phone.Id">To buy</a></td>
-            </tr>
-        }
-    </table>
+    }
+</table>
 </body>
 </html>

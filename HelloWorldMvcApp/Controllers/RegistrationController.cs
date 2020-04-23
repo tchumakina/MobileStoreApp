@@ -1,16 +1,15 @@
-﻿using System.Linq;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using MobileStore.Models;
 
 namespace MobileStore.Controllers
 {
     public class RegistrationController : Controller
     {
-        MobileContext db;
+        private readonly IDbContext _dbContext;
 
-        public RegistrationController(MobileContext context)
+        public RegistrationController(IDbContext context)
         {
-            db = context;
+            _dbContext = context;
         }
 
         [HttpGet]
@@ -18,7 +17,6 @@ namespace MobileStore.Controllers
         {
             return RedirectToAction("Registration");
         }
-
 
         [HttpGet]
         public IActionResult Registration()
@@ -29,11 +27,9 @@ namespace MobileStore.Controllers
         [HttpPost]
         public string Registration(User user)
         {
-            db.Users.Add(user);
-            db.SaveChanges();
+            _dbContext.Users.Add(user);
+            _dbContext.SaveChanges();
             return "Thanks for registration";
         }
     }
-
-
 }

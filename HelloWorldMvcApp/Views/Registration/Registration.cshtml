@@ -1,37 +1,46 @@
-﻿@model IEnumerable<MobileStore.Models.User>
-@{
-    //ViewData["Title"] = "Registration";
+﻿@{
     Layout = null;
 }
+
 <!DOCTYPE html>
 <html>
 <head>
     <title>Registration</title>
 </head>
 <body>
+<div>
+    <h3>Registration form</h3>
     <div>
-        <h3>Registration form</h3>
-         <td> <a href="~/Home/PrivacyPolicy/">Privacy Policy</a></td>
-    <td> <a href="~/Home/">Home</a></td>
-        <p>Please fill in this form to register</p>
-        <form method="post">
-            <input type="hidden" name="Registration" />
-            <table>
-                <tr>
-                    <td>Username:</td>
-                    <td><input type="text" name="Username" /> </td>
-                </tr>
-                <tr>
-                    <td>Email:</td>
-                    <td><input type="text" name="Email" /></td>
-                </tr>
-                <tr>
-                    <td>Password:</td>
-                    <td><input type="text" name="Password" /></td>
-                </tr>
-                <tr><td><input type="submit" value="Register me!" /> </td><td></td></tr>
-            </table>
-        </form>
+        <a href="~/Home/">Home</a>
     </div>
+    <p>Please fill in this form to register</p>
+    <form method="post">
+        <table>
+            <tr>
+                <td>Username:</td>
+                <td>
+                    <input type="text" name="Username"/>
+                </td>
+            </tr>
+            <tr>
+                <td>Email:</td>
+                <td>
+                    <input type="text" name="Email"/>
+                </td>
+            </tr>
+            <tr>
+                <td>Password:</td>
+                <td>
+                    <input type="text" name="Password"/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="submit" value="Register me!"/>
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
 </body>
 </html>

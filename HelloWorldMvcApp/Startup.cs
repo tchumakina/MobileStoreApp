@@ -1,9 +1,8 @@
 using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using MobileStore.Models;   
-using Microsoft.EntityFrameworkCore;
+using MobileStore.Models;
 
 namespace MobileStore
 {
@@ -18,8 +17,8 @@ namespace MobileStore
 
         public void ConfigureServices(IServiceCollection services)
         {
-            string connection = Configuration.GetConnectionString("DefaultConnection");
-            services.AddDbContext<MobileContext>(options =>
+            var connection = Configuration.GetConnectionString("DefaultConnection");
+            services.AddDbContext<IDbContext, MobileContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddControllersWithViews();
         }
@@ -35,8 +34,8 @@ namespace MobileStore
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
-                    name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    "default",
+                    "{controller=Home}/{action=Index}/{id?}");
             });
         }
     }

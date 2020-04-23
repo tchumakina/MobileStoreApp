@@ -5,7 +5,7 @@ namespace MobileStore
 {
     public static class SampleData
     {
-        public static void Initialize(MobileContext context)
+        public static void Initialize(IDbContext context)
         {
             if (!context.Phones.Any())
             {
@@ -14,19 +14,29 @@ namespace MobileStore
                     {
                         Name = "iPhone X",
                         Company = "Apple",
-                        Price = 600
+                        Price = 600,
+                        ReleaseYear = 2019
                     },
                     new Phone
                     {
-                        Name = "Samsung Galaxy Edge",
+                        Name = "Galaxy Edge",
                         Company = "Samsung",
-                        Price = 550
+                        Price = 550,
+                        ReleaseYear = 2016
                     },
                     new Phone
                     {
                         Name = "Pixel 3",
                         Company = "Google",
-                        Price = 500
+                        Price = 500,
+                        ReleaseYear = 2018
+                    },
+                    new Phone
+                    {
+                        Name = "MicroTAC",
+                        Company = "Motorola",
+                        Price = 5,
+                        ReleaseYear = 1989
                     }
                 );
                 context.SaveChanges();
